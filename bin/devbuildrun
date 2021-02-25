@@ -1,2 +1,0 @@
-#!/bin/bash
-node_modules/.bin/concurrently --kill-others-on-fail --timestamp-format "HH:mm:ss" --names "Express,Watch" --prefix "{time} {name}" "node bin/www" "node client/bin/build --dev"
