@@ -1,7 +1,0 @@
-.container
-    .row(*ngIf="isLoading"): .col-12: .spinner-ctnr: .fas.fa-yin-yang.fa-spin
-    .imgs([class.active]="!isLoading")
-        //- p.desc Custom artwork for the final touch.
-        .row
-            div(*ngFor="let src of imgSrcs; let i = index", [ngClass]="{'col-4': activeIndex != i, 'col-12': activeIndex == i}", (click)="onImgClick(i)")
-                img([src]="src")

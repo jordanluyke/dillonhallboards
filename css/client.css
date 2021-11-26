@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Same Old English";
+  src: url("/fonts/same-old-english.woff2") format("woff2"), url("/fonts/same-old-english.woff") format("woff");
+}
+html,
+body {
+  font-family: 'Same Old English', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffe9e3;
+  height: 100%;
+  width: 100%;
+  background-color: #222222;
+  letter-spacing: 0.5px;
+}
+.container {
+  max-width: 960px;
+}
+p {
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: initial;
+}
+a {
+  color: #ffe9e3;
+  -webkit-transition: color 50ms;
+  -o-transition: color 50ms;
+  -moz-transition: color 50ms;
+  transition: color 50ms;
+  outline: 0;
+}
+a:hover {
+  color: #ffd5c9;
+}
+img {
+  outline: 0;
+}
+hr {
+  border-top: 1px solid rgba(155, 178, 204, 0.2);
+  margin: 20px 0;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.error {
+  color: #F44040;
+  font-size: 12px;
+}
+input {
+  width: 100%;
+  outline: 0;
+  border: 1px solid;
+  border-color: #B6B4B6;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  padding: 6px 9px;
+  font-size: 14px;
+  height: 40px;
+}
+input:focus {
+  border-color: #9900ff;
+}
+.btn {
+  font-size: 16px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 0;
+  padding: 8px 15px 7px;
+}
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+     -moz-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.btn-primary {
+  background-color: #9900ff;
+  -webkit-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  transition: background-color 100ms;
+}
+.btn-primary:hover {
+  background-color: #7a00cc;
+}
+.spinner-ctnr {
+  padding-left: 20px;
+  padding-top: 40px;
+  text-align: center;
+}
+.spinner-ctnr .fa-yin-yang {
+  color: #ffe9e3;
+  font-size: 90px;
+}
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow-x: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
