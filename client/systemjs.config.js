@@ -3,6 +3,7 @@ let map = {
     "@angular": "node_modules/@angular",
     "rxjs": "node_modules/rxjs",
     "@ng-bootstrap": "node_modules/@ng-bootstrap",
+    "tslib": "node_modules/tslib",
 };
 
 let packages = {
@@ -24,7 +25,11 @@ let packages = {
         defaultExtension: "js"
     },
     "@ng-bootstrap/ng-bootstrap": {
-        main: "bundles/ng-bootstrap.umd.min.js",
+        main: "bundles/ng-bootstrap.umd.js",
+        defaultExtension: "js"
+    },
+    "tslib": {
+        main: "tslib.js",
         defaultExtension: "js"
     },
 };
@@ -39,15 +44,15 @@ let packages = {
     "router"
 ].forEach(name => {
     packages[`@angular/${name}`] = {
-        main: `bundles/${name}.umd.min.js`,
+        main: `bundles/${name}.umd.js`,
         defaultExtension: "js"
     };
 });
 
 packages["@angular/common"] = {
-    main: "bundles/common.umd.min.js",
+    main: "bundles/common.umd.js",
     map: {
-        "./http": "./bundles/common-http.umd.min.js",
+        "./http": "./bundles/common-http.umd.js",
     },
     defaultExtension: "js"
 };

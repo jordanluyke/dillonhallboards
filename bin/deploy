@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 node client/bin/build
 git branch -D gh-pages

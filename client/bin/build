@@ -257,6 +257,7 @@ let copyFiles = () => {
                     "@ng-bootstrap",
                     "systemjs",
                     "reflect-metadata",
+                    "tslib",
                 ])
 
             return Promise.all(packages.map(package => fs.copy(path.join(client, "node_modules", package), path.join(client, "target/node_modules", package))))
