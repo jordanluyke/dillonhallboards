@@ -1,20 +1,27 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra')
-const glob = require('glob')
-const chokidar = require('chokidar')
-const pug = require('pug')
-const less = require('less')
-const childProcess = require('child_process')
-const argv = require('minimist')(process.argv.slice(2))
-const path = require('path')
-const LessPluginAutoPrefix = require('less-plugin-autoprefix')
-const rollup = require('rollup')
-const nodeResolve = require('@rollup/plugin-node-resolve').nodeResolve
-const babel = require('@rollup/plugin-babel').babel
-const util = require('util')
-const eslint = require('eslint')
+import fs from 'fs-extra'
+import glob from 'glob'
+import chokidar from 'chokidar'
+import pug from 'pug'
+import less from 'less'
+import childProcess from 'child_process'
+import minimist from 'minimist'
+import url from 'url'
+import path from 'path'
+import LessPluginAutoPrefix from 'less-plugin-autoprefix'
+import * as rollup from 'rollup'
+import pluginNodeResolve from '@rollup/plugin-node-resolve'
+import pluginBabel from '@rollup/plugin-babel'
+// import linkerPlugin from '@angular/compiler-cli/linker/babel'
+import util from 'util'
+import eslint from 'eslint'
 
+const __filename = url.fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const argv = minimist(process.argv.slice(2))
+const nodeResolve = pluginNodeResolve
+const babel = pluginBabel.babel
 const client = path.join(__dirname, "..")
 const autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 99 versions"]})
 
@@ -260,7 +267,7 @@ let copyFiles = () => {
                     "tslib",
                 ])
 
-            return Promise.all(packages.map(package => fs.copy(path.join(client, "node_modules", package), path.join(client, "target/node_modules", package))))
+            return Promise.all(packages.map(pkg => fs.copy(path.join(client, "node_modules", pkg), path.join(client, "target/node_modules", pkg))))
         })
 }
 
@@ -307,7 +314,6 @@ let bundle = () => {
         context: "window",
         input: path.join(client, "target/src/main-aot.js"),
         onwarn: (warning) => {
-            if(warning.code == "CIRCULAR_DEPENDENCY") return
             console.log(warning.message)
         },
         plugins: [
